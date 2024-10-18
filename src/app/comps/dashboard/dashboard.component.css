@@ -1,0 +1,50 @@
+.body{
+    display: flex;
+    align-items: center;
+    background-color: #0f0f0f;
+   
+}
+.container-fluid{
+    margin-top: 70px;
+}
+.movie-card {
+    margin-top: 15px;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 310px;
+}
+ 
+.movie-card:hover {
+  
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+ 
+.movie-image {
+    border-radius: 10px 10px 0 0;
+    height: 200px;
+    object-fit:fill;
+}
+ 
+.card-title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+ 
+.card-text {
+    font-size: 0.8rem;
+    color: #0f0f0f;
+}
+ 
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+ 
+.btn-danger:hover {
+    background-color: #c82333;
+}

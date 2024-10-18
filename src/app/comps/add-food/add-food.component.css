@@ -1,0 +1,59 @@
+.body {
+    margin: 0;
+    height: 100vh;
+    background-image: url("../../../assets/back4.webp");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+.add-food-container {
+    width: 450px;
+    margin: auto;
+    margin-right: 1000px;
+    padding: 1em;
+    color: #050000;
+    border-radius: 5px;
+    background-color: rgba(125, 121, 121, 0.8);
+}
+ 
+h2 {
+    text-align: center;
+    color: #090101;
+}
+ 
+input, textarea, select {
+    width: 100%;
+    padding: 0.5em;
+    margin: 0.5em 0;
+    color: #000;
+    background-color: #cdc9c9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+ 
+textarea {
+    height: 80px; /* Adjust height as needed */
+}
+ 
+button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 0.5em;
+    background-color: rgb(57, 55, 55);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+ 
+button:hover {
+  background-color: #8f958f;
+}
+ 
+.error {
+    color: red;
+    text-align: center;
+}

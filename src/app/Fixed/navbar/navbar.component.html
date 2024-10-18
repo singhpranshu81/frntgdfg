@@ -1,0 +1,37 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </head>
+  <div>
+      <nav class="navbar fixed-top">
+        <div class="container">
+          <a class="navbar-brand" style="color: white;" routerLink="/">Food Box</a>
+          <!-- <div class="search-container">
+            <input type="text" *ngIf="isLoggedIn()" id="search-input" placeholder="Search for a movie...">
+          </div> -->
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/about">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/contact">Contact Us</a>
+            </li>
+            <li  class="nav-item">
+              <a class="nav-link" routerLink="/login" *ngIf="!isLoggedIn()"
+              >Sign-in</a
+            >
+            <a class="nav-link" (click)="signOut()" *ngIf="isLoggedIn()"
+              >Sign Out</a
+            >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+    

@@ -1,0 +1,36 @@
+<p>Cart works!</p>
+
+{{ cart | json }}
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Food Name</th>
+        <th>Quantity</th>
+        <th>Price/Unit</th>
+        <th>Category</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let foodItem of cart.food"> 
+        <td>{{ foodItem.foodId }}</td>
+        <td>{{ foodItem.foodName }}</td>
+        <td>{{ foodItem.quantity }}</td>
+        <td>{{ foodItem.price }}</td>
+        <td>{{ foodItem.category.categoryName }}</td>
+        <td>{{ foodItem.price * foodItem.quantity }}</td>
+      </tr>
+      <tr>
+        <td colspan="5" class="text-right font-weight-bold">Total Price:</td>
+        <td>{{ getTotalPrice() }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="text-right">
+  <button (click)="goToOrderDetails()" class="btn btn-success btn-sm">Place Order</button>
+</div>

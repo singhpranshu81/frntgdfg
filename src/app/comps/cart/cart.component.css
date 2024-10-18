@@ -1,0 +1,30 @@
+table {
+    width: 100%;
+    border-collapse: collapse; /* Merge borders for a cleaner look */
+    margin: 20px 0; /* Space around the table */
+    font-size: 16px; /* Font size */
+  }
+  
+  th, td {
+    padding: 12px; /* Space inside cells */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #ddd; /* Bottom border for rows */
+  }
+  
+  th {
+    background-color: #4CAF50; /* Green background for the header */
+    color: white; /* White text color */
+  }
+  
+  tbody tr:hover {
+    background-color: #f1f1f1; /* Light gray background on hover */
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray for even rows */
+  }
+  
+  tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* White for odd rows */
+  }
+ 

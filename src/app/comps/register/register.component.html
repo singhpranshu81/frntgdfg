@@ -1,0 +1,44 @@
+<div class="body">
+    <div class="register-container">
+      <h2>Register</h2>
+      <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+        <div>
+          <label for="username">Username:</label>
+          <input type="text" id="username" required [(ngModel)]="registerModel.fullName" name="username" />
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" required [(ngModel)]="registerModel.email" name="email" />
+        </div>
+        <div>
+          <label for="Mobile">Mobile No:</label>
+          <input type="text" id="Mobile" required [(ngModel)]="registerModel.mobileNumber" name="mobile" />
+        </div>
+        <div>
+          <label for="gender">Gender:</label>
+          <select id="gender" required [(ngModel)]="registerModel.gender" name="gender">
+            <option value="" disabled selected>Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+   
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" required [(ngModel)]="registerModel.password" name="password" />
+        </div>
+      
+        <div>
+          <label for="confirmPassword">Confirm Password:</label>
+          <input type="password" id="confirmPassword" required 
+            name="confirmPassword" />
+        </div>
+        
+        <button type="submit" [disabled]="!registerForm.form.valid">Register</button>
+        <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+        <p>Already have an account? <a routerLink="/login">Login here</a></p>
+      </form>
+    </div>
+  </div>
+  <router-outlet></router-outlet>

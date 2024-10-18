@@ -1,0 +1,60 @@
+<div class="body">
+  <div class="add-food-container">
+    <h2>Add Food Details</h2>
+    <form (ngSubmit)="onSubmit()" #foodForm="ngForm">
+      <div>
+        <label for="foodName">Food Name:</label>
+        <input type="text" id="foodName" required [(ngModel)]="foodModel.foodName" name="foodName" />
+      </div>
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" required [(ngModel)]="foodModel.description" name="description"></textarea>
+      </div>
+      <div>
+        <label for="price">Price:</label>
+        <input type="number" id="price" required [(ngModel)]="foodModel.price" name="price" min="0" />
+      </div>
+      <div>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" required [(ngModel)]="foodModel.quantity" name="quantity" />
+      </div>
+      <label for="categoryType">Choose category type:</label>
+      <select [(ngModel)]="categoryType" class="form-control" id="categoryType" name="categoryType">
+        <option value="">--Select Option--</option>
+        <option value="new">Create New Category</option>
+        <option value="existing">Select Existing Category</option>
+      </select>
+
+      <br>
+
+      <!-- Form for Creating New Category -->
+      <div *ngIf="isCreateNewCategory()">
+        <label for="categoryId">Category ID:</label>
+        <input type="text" id="categoryId" [(ngModel)]="foodModel.category.categoryId" class="form-control" name="categoryId" placeholder="Enter category ID">
+        
+        <br>
+
+        <label for="categoryName">Category Name:</label>
+        <input type="text" id="categoryName" [(ngModel)]="foodModel.category.categoryName" class="form-control" name="categoryName" placeholder="Enter category name">
+      </div>
+
+      <!-- Select for Existing Categories -->
+      <div *ngIf="isSelectExistingCategory()">
+        <label for="existingCategory">Existing Category:</label>
+        <select class="form-control" id="existingCategory"  name="existingCategory">
+          <option value="">--Select Existing Category--</option>
+          <option *ngFor="let category of category" [value]="category.categoryId">
+            {{ category.categoryName }}
+          </option>
+        </select>
+      </div>
+
+      <div>
+        <label for="imageUrl">Image URL:</label>
+        <input type="url" id="imageUrl" required [(ngModel)]="foodModel.url" name="imageUrl" />
+      </div>
+      
+      <button type="submit" [disabled]="!foodForm.form.valid">Add Food</button>
+    </form>
+  </div>
+</div>

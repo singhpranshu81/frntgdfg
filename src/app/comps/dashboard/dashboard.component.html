@@ -1,0 +1,96 @@
+<div class="body">
+  <div class="container-fluid">
+    <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
+        <div
+          class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"
+        >
+          <a
+            href="/"
+            class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+          >
+            <span class="fs-5 d-none d-sm-inline">Hii {{name}}</span>
+          </a>
+          <ul
+            class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+            id="menu"
+          >
+            <li class="nav-item">
+              <a *ngIf="isAdmin"
+                [routerLink]="['/addfood']"
+                routerLinkActive="router-link-active"
+                class="nav-link align-middle px-0"
+              >
+                <i class="fs-2 bi-house"></i>
+                <span class="ms-1 d-none d-sm-inline">Add Food</span>
+              </a>
+            </li>
+            <li>
+              <a *ngIf="isAdmin"
+                [routerLink]="['/updatefood']"
+                routerLinkActive="router-link-active"
+                data-bs-toggle="collapse"
+                class="nav-link px-0 align-middle"
+              >
+                <i class="fs-2 bi-speedometer2"></i>
+                <span class="ms-1 d-none d-sm-inline">Update Food</span>
+              </a>
+            </li>
+            <li>
+              <a
+                [routerLink]="['/update']"
+                routerLinkActive="router-link-active"
+                data-bs-toggle="collapse"
+                class="nav-link px-0 align-middle"
+              >
+                <i class="fs-2 bi-speedometer2"></i>
+                <span class="ms-1 d-none d-sm-inline">Your Bookings</span>
+              </a>
+            </li>
+          </ul>
+          <hr />
+        </div>
+      </div>
+      <div class="col py-3">
+        <div class="container">
+          <div class="row">
+            <div *ngFor="let khana of food" class="col-md-2 mb-4">
+              <div class="card movie-card">
+                <img
+                  src="../../../assets/food2.jpg"
+                  class="card-img-top movie-image"
+                  alt="Joker"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title">{{ khana.foodId }}</h5>
+                  <p class="card-text">{{ khana.foodName }}</p>
+                  <p class="card-text">{{ khana.category.categoryName }}</p>
+                  <a
+                    (click)="addToCart(khana)"
+                    *ngIf="!isAdmin"
+                    class="btn btn-danger btn-sm cart"
+                    >Add to Cart</a
+                  >
+                  <a
+                    (click)="deleteFood(khana.foodId)"
+                    *ngIf="isAdmin"
+                    class="btn btn-danger btn-sm cart"
+                    >Delete</a
+                  >
+                  <a
+                    *ngIf="isAdmin"
+                    routerLink="/update"
+                    style="margin-left: 7px"
+                    class="btn btn-danger btn-sm cart"
+                    >Update</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

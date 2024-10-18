@@ -1,0 +1,64 @@
+<div class="body">
+    <div class="login-container">
+      <!-- <h2>Login</h2> -->
+      <p class="login-text">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i   class="fa fa-unlock fa-stack-1x"></i>
+        </span>
+      </p>
+      <h3 style="text-align: center;">Welcome Admin</h3>
+      <form #loginForm="ngForm">
+        <div>
+          <label for="username">Username:</label>
+          <input
+            type="text"
+            [(ngModel)]="loginDetails.userName"
+            id="username"
+            required
+            name="username"
+            placeholder="Enter your username"
+          />
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            [(ngModel)]="loginDetails.password"
+            id="password"
+            required
+            name="password"
+            placeholder="Enter your password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            #password="ngModel"
+          />
+          <div *ngIf="password.invalid && (password.dirty || password.touched)">
+            <small *ngIf="password.errors?.['required']"
+              >Password is required.</small
+            >
+            <small *ngIf="password.errors?.['pattern']"
+              >Password must be at least 8 characters long and contain at least
+              one number, one lowercase and one uppercase letter.</small
+            >
+          </div>
+        </div>
+        <div
+          *ngIf="
+            loginForm.form.invalid &&
+            (loginForm.form.dirty || loginForm.form.touched)
+          "
+        >
+          <small *ngIf="loginForm.form.errors?.['required']"
+            >All fields are required.</small
+          >
+        </div>
+        <button (click)="goToDash()" [disabled]="!loginForm.form.valid">
+          Login
+        </button>
+  
+        <p>Don't have an account? <a routerLink="/adminregister">Register Admin here</a></p>
+        <a href="#" class="login-forgot-pass">Forgot Password?</a>
+      </form>
+    </div>
+  </div>
+  

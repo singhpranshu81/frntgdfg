@@ -1,0 +1,35 @@
+<body>
+<div style="display: flex; align-items: center;">
+    <h3 style="margin-right: 10px;margin-top: 70px;">Hurray Abhi!! Your Food is Cooked</h3>
+   
+</div>
+<div class="ticket-container">
+
+    <div class="img">
+        <img src="../../../assets/image.png" alt="Movie Poster" class="movie-poster" />
+    </div>
+ <br>
+    <h2>Order Details</h2>
+    <div class="ticket-attribute">
+        <strong>ID:</strong> 123 from user
+    </div>
+    <div class="ticket-attribute">
+        <strong>Date:</strong> {{ dummyOrder.orderDate | date:'dd/MM/yyyy'}}
+    </div>
+    <div class="ticket-attribute">
+        <strong>Status:</strong> {{dummyOrder.orderStatus}}
+    </div>
+      <h3>Item Details</h3>
+    <div *ngFor="let item of carty.food" class="ticket-attribute">
+        <strong>Food Name:</strong> {{ item.foodName }} <br>
+        <strong>Price:</strong> {{ item.price | currency:'INR' }} <br>
+    </div>
+    <div class="ticket-attribute">
+        <strong>Total Price:</strong> {{ totalPrice | currency:'INR'}}
+    </div>
+    <div class="payment-button" style="text-align: center; margin-top: 15px;">
+        <button (click)="makePayment()">Make Payment</button>
+    </div>
+</div>
+
+</body>
